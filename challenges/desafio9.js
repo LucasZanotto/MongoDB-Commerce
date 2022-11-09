@@ -1,4 +1,14 @@
 db.produtos.find(
-  { "valoresNutricionais.0.tipo": { $lt: 500 } },
-   { nome: 1 },
+  { valoresNutricionais:
+   {
+    $elemMatch: 
+     {
+        tipo: "calorias",
+$and: [
+           { quantidade: { $lte: 500 } },
+          ],
+     },
+   },
+   },
+   { nome: 1, _id: 0 },
 );

@@ -3,4 +3,4 @@ db.produtos.deleteMany(
   { nome: 1 },
 );
 
-db.produtos.find({}, { nome: 1 });
+db.produtos.find({}, { nome: 1, _id: 0 });
