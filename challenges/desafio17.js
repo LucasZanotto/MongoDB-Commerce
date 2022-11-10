@@ -1,4 +1,8 @@
-db.resumoProdutos.updateMany({},
-  { $set: { franquia: ["McDonalds", "totalProdutos"] } });
+const countDoc = db.produtos.countDocuments({});
+
+db.resumoProdutos.insertOne({
+    franquia: "McDonalds",
+    totalProdutos: countDoc,
+  });
  
-  db.produtos.find({}, { nome: 1, criadoPor: 1, _id: 0 });
+  db.resumoProdutos.findOne({}, { franquia: 1, totalProdutos: 1, _id: 0 });
